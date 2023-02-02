@@ -73,6 +73,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
+void ReadMatrixButton_1Row();
 
 /* USER CODE END PFP */
 
@@ -233,7 +234,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(R1_GPIO_Port, R1_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, R2_Pin|R3_Pin|R4_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB, R2_Pin|R4_Pin|R3_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
@@ -267,8 +268,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(R1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : R2_Pin R3_Pin R4_Pin */
-  GPIO_InitStruct.Pin = R2_Pin|R3_Pin|R4_Pin;
+  /*Configure GPIO pins : R2_Pin R4_Pin R3_Pin */
+  GPIO_InitStruct.Pin = R2_Pin|R4_Pin|R3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
